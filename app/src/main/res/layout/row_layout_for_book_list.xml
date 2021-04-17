@@ -2,6 +2,11 @@
 <layout >
     
     <data>
+
+        <variable
+            name="book"
+            type="com.app.stationaryapp.model.Book" />
+
         <variable
             name="bookData"
             type="com.app.stationaryapp.ui.BookListViewModel" />
@@ -10,29 +15,34 @@
     <androidx.cardview.widget.CardView
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/book_cv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardBackgroundColor="#FFFFFF"
         android:padding="10dp"
-        android:layout_margin="10dp">
+        android:layout_margin="15dp"
+        android:elevation="4dp"
+        >
 
         <LinearLayout
+            android:id="@+id/content_ll"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:padding="8dp">
 
             <LinearLayout
                 android:layout_width="0dip"
                 android:layout_height="wrap_content"
-                android:layout_weight="30"
+                android:layout_weight="34"
+                android:background="@drawable/round_image_bg"
                 >
                 <ImageView
                     android:id="@+id/book_cover_iv"
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
+                    android:layout_width="136dp"
+                    android:layout_height="140dp"
                     android:scaleType="centerCrop"
-
+                    android:src="@drawable/placeholder"
+                    android:background="@drawable/round_image_bg"
                     />
 
             </LinearLayout>
@@ -40,7 +50,7 @@
             <LinearLayout
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
-                android:layout_weight="70"
+                android:layout_weight="66"
                 android:orientation="vertical"
                 android:padding="10dp">
 
@@ -51,16 +61,30 @@
                     >
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Name: "/>
-
-                    <TextView
                         android:id="@+id/book_title_tv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="6dp"
-                        android:text=""/>
+                        android:maxLines="2"
+                        style="@style/TitleTextView"
+                        />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+
+                    <TextView
+                        android:id="@+id/book_description_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="6dp"
+                        style="@style/SubTitleTextView"
+                        />
 
                 </LinearLayout>
 

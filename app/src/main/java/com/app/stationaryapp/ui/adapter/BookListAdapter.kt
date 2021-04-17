@@ -3,13 +3,12 @@ package com.app.stationaryapp.ui.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.app.stationaryapp.`interface`.RecyclerItemListener
 import com.app.stationaryapp.databinding.RowLayoutForBookListBinding
 import com.app.stationaryapp.model.Book
 import com.app.stationaryapp.ui.BookListViewModel
 import com.app.stationaryapp.ui.viewholder.BookViewHolder
 
-class BookListAdapter(private val bookListViewModel: BookListViewModel,private val bookList: List<Book>):
+class BookListAdapter(private val itemListener: RecyclerItemListener,private val bookListViewModel: BookListViewModel,private val bookList: List<Book>):
     RecyclerView.Adapter<BookViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookViewHolder {
@@ -22,15 +21,18 @@ class BookListAdapter(private val bookListViewModel: BookListViewModel,private v
     }
 
     override fun onBindViewHolder(holder: BookViewHolder, position: Int) {
-        holder.bind(bookList[position],OnItemClickListener)
+        holder.bind(bookList[position],itemListener)
     }
 
-    private val OnItemClickListener:RecyclerItemListener= object :RecyclerItemListener{
-        override fun onItemSelected(item: Any) {
-            bookListViewModel.onBookDetail(item as Book)
-        }
+    interface RecyclerItemListener {
 
-
+        fun onItemSelected(item:Any)
 
     }
+
+
+
+
+
+
 }

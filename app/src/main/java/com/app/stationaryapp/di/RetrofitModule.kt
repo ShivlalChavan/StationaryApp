@@ -1,6 +1,7 @@
 package com.app.stationaryapp.di
 
 import com.app.stationaryapp.retrofit.ApiService
+import com.app.stationaryapp.utils.Utils
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import dagger.Module
@@ -29,7 +30,7 @@ object RetrofitModule {
     @Provides
     fun provieRetrofit(gson:Gson): Retrofit.Builder{
         return  Retrofit.Builder()
-            .baseUrl("http://192.168.1.207:3000/api/v1/")
+            .baseUrl(Utils.BASEURL)
             .addConverterFactory(GsonConverterFactory.create(gson))
     }
 

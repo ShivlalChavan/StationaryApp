@@ -2,10 +2,11 @@ package com.app.stationaryapp
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp
+import timber.log.Timber
 
 
 @HiltAndroidApp
-class StationaryApplication : Application()/*{
+class StationaryApplication : Application(){
 
     override fun onCreate() {
         super.onCreate()
@@ -13,4 +14,4 @@ class StationaryApplication : Application()/*{
             Timber.plant(Timber.DebugTree())
         }
     }
-}*/
+}

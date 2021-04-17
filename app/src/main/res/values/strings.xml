@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">StationaryApp</string>
+    <string name="title_retry">Retry!</string>
+    <string name="error_msg_txt">Something went wrong!</string>
 </resources>

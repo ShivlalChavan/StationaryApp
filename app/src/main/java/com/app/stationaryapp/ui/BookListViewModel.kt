@@ -10,6 +10,7 @@ import com.app.stationaryapp.utils.exhaustive
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
+import timber.log.Timber
 
 class BookListViewModel
  @ViewModelInject
@@ -35,7 +36,6 @@ class BookListViewModel
                     }
                     .launchIn(viewModelScope)
              }
-
              is BookStateEvent.None->{}
            }.exhaustive
         }
@@ -43,7 +43,12 @@ class BookListViewModel
 
     fun onBookDetail(bookItem:Book){
         bookeDetail.value = bookItem
+        Timber.e("Book Detail ${bookeDetail.value}")
+
     }
+
+
+
 
 }
 
